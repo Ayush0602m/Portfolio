@@ -21,29 +21,31 @@ export function DockNav() {
     []
   );
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = items.map((i) => i.id);
-      const current = sections.find((section) => {
-        const el = document.getElementById(section);
-        if (!el) return false;
-        const rect = el.getBoundingClientRect();
-        return rect.top <= 120 && rect.bottom >= 120;
-      });
-      if (current) setActiveSection(current);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [items]);
 
-  const scrollToSection = (sectionId: string) => {
-    const el = document.getElementById(sectionId);
-    if (!el) return;
-    const offset = 80;
-    const top = el.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: "smooth" });
-  };
+  // toggle navigation based on scroll position
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const sections = items.map((i) => i.id);
+  //     const current = sections.find((section) => {
+  //       const el = document.getElementById(section);
+  //       if (!el) return false;
+  //       const rect = el.getBoundingClientRect();
+  //       return rect.top <= 120 && rect.bottom >= 120;
+  //     });
+  //     if (current) setActiveSection(current);
+  //   };
+  //   window.addEventListener("scroll", handleScroll, { passive: true });
+  //   handleScroll();
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, [items]);
+
+  // const scrollToSection = (sectionId: string) => {
+  //   const el = document.getElementById(sectionId);
+  //   if (!el) return;
+  //   const offset = 80;
+  //   const top = el.getBoundingClientRect().top + window.scrollY - offset;
+  //   window.scrollTo({ top, behavior: "smooth" });
+  // };
 
   return (
     <div className="fixed inset-x-0 bottom-6 z-50 flex justify-center px-4">
@@ -104,7 +106,7 @@ function DockButton({
       animate={{ scale }}
       transition={{ type: "spring", stiffness: 450, damping: 30 }}
       className={[
-        "relative grid place-items-center rounded-xl px-3 py-2",
+        "relative grid place-items-center rounded-2xl px-3 py-2",
         "text-muted-foreground hover:text-foreground",
         "focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30",
         active ? "text-foreground" : "",
