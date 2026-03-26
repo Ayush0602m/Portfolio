@@ -25,18 +25,12 @@ export function Education() {
   return (
     <section id="education" ref={ref} className=" py-10 px-5 sm:px-6 g:px-8" style={{ backgroundColor: 'black' }}>
       <div className="max-w-4xl mx-auto w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-4 text-center"
-        >
+        
           <span className="text-2xl font-bold text-white  uppercase tracking-wider mb-2 block text-left">
             Education
           </span>
         
          
-        </motion.div>
 
         <div className="grid gap-8 mb-16">
           {education.map((edu, index) => (

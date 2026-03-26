@@ -58,12 +58,12 @@ export function About() {
  
 
   <div className="flex items-center mt-0">
-    <img 
+    {/* <img 
       src="/profile.jpg" 
       alt="Ayush Mangla profile"
       className="w-16 h-16 md:w-30 md:h-30 rounded-full object-cover border-2 border-muted-foreground"
       style={{ boxShadow: '0 4px 16px 0 rgba(0,0,0,0.07)' }}
-    />
+    /> */}
 
     <span className="ml-4 text-muted-foreground hidden sm:inline">
       {/* location or tagline */}
