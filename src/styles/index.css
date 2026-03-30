@@ -2,5 +2,5 @@
 @import './tailwind.css';
 @import './theme.css';
 body {
-    font-family: 'Inter','Space Grotesk', sans-serif;
+    font-family: 'Roboto slab, sans serif !important';
   }

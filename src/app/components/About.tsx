@@ -46,8 +46,8 @@ export function About() {
           
           <div className="text-left mb-6 flex items-center justify-between ">
 
-  <h2 className="text-5xl md:text-5xl tracking-tight font-bold mt-9">
-    Hi, I'm Ayush Mangla
+  <h2 className="text-5xl md:text-5xl tracking-tight  mt-9 font-family: 'Inter', sans-serif; text-white">
+  Ayush Mangla
 
     <span className="block font-extralight text-[20px]/7 mt-5 ">
     Software Engineer, building stuff that matters. Passionate about creating innovative web solutions and enhancing user experiences.
@@ -65,9 +65,7 @@ export function About() {
       style={{ boxShadow: '0 4px 16px 0 rgba(0,0,0,0.07)' }}
     /> */}
 
-    <span className="ml-4 text-muted-foreground hidden sm:inline">
-      {/* location or tagline */}
-    </span>
+   
   </div>
 
 </div>
@@ -75,7 +73,7 @@ export function About() {
           
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 mb-16 border-b border-grey">
+        <div className="grid md:grid-cols-2 gap-12 mb-16  border-white">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -89,25 +87,25 @@ export function About() {
             </p>
           </motion.div>
 
-          {/* <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative aspect-square rounded-2xl overflow-hidden "
-            style={{ 
-              background: 'black '
-            }}
-          >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div 
-                className="w-48 h-48 rounded-full " 
-                style={{ 
-                  background: `linear-gradient(135deg, var(--neutral-sage) 0%, var(--neutral-mauve) 100%)`,
-                  opacity: 0.3
-                }}
-              />
-            </div>
-          </motion.div> */}
+            {/* <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="relative aspect-square rounded-2xl overflow-hidden "
+              style={{ 
+                background: 'black '
+              }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div 
+                  className="w-48 h-48 rounded-full " 
+                  style={{ 
+                    background: `linear-gradient(135deg, var(--neutral-sage) 0%, var(--neutral-mauve) 100%)`,
+                    opacity: 0.3
+                  }}
+                />
+              </div>
+            </motion.div> */}
         </div>
 <section>
         <div className="grid md:grid-cols-3 gap-8">

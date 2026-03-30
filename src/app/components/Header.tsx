@@ -105,7 +105,7 @@ export function Header() {
       <div className="absolute top-8 right-8 md:right-12 flex items-center gap-3 z-20">
         {/* GitHub with star count */}
         <motion.a
-          href="https://github.com"
+          href="https://github.com/Ayush0602m/Portfolio"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors"
@@ -113,7 +113,7 @@ export function Header() {
           whileTap={{ scale: 0.95 }}
         >
           <Github className="w-5 h-5 text-white" />
-          <span className="text-white text-sm font-medium">14</span>
+         
         </motion.a>
 
         {/* Theme Toggle */}

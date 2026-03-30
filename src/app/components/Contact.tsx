@@ -1,7 +1,11 @@
-import { motion } from 'motion/react';
-import { useInView } from 'motion/react';
+import { motion, useInView } from 'motion/react';
 import { useRef, useState } from 'react';
 import { Mail, MapPin, Send } from 'lucide-react';
+
+const promptRows = [
+  { label: 'name', placeholder: 'Your name' },
+  { label: 'email', placeholder: 'your.email@example.com' },
+] as const;
 
 export function Contact() {
   const ref = useRef(null);
@@ -9,39 +13,46 @@ export function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
     console.log('Form submitted:', formData);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
   const contactInfo = [
     {
-      icon: Mail ,
-      label: 'Email',
+      icon: Mail,
+      label: 'Primary channel',
       value: 'ayushmangla73@gmail.com',
-      href: 'mailto:ayushmangla73@gmail.com'
+      href: 'mailto:ayushmangla73@gmail.com',
     },
     {
       icon: MapPin,
-      label: 'Location',
+      label: 'Current location',
       value: 'New Delhi, India',
-      href: null
-    }
+      href: null,
+    },
   ];
 
   return (
-    <section id="contact" ref={ref} className="min-h-screen flex items-center py-20 px-6 lg:px-8">
+    <section
+      id="contact"
+      ref={ref}
+      className="min-h-screen flex items-center py-20 px-6 lg:px-8 text-white"
+      style={{
+        background:
+          'radial-gradient(circle at 15% 10%, rgba(157,180,192,0.12) 0%, rgba(0,0,0,0) 40%), linear-gradient(180deg, #060709 0%, #030405 100%)',
+      }}
+    >
       <div className="max-w-6xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -49,137 +60,259 @@ export function Contact() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <span className="text-sm text-muted-foreground uppercase tracking-wider mb-4 block">
-            Get in Touch
+          <span className="text-sm text-white/55 uppercase tracking-[0.35em] mb-4 block">
+            Contact.exe
           </span>
-          <h2 className="text-4xl md:text-5xl tracking-tight mb-6">
-            Let's Work Together
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or just want to chat? Feel free to reach out.
-            I'm always open to discussing new opportunities.
-          </p>
+         
+          
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="overflow-hidden rounded-[2rem] border shadow-2xl"
+          style={{
+            background:
+              'linear-gradient(180deg, #0f1418 0%, #0a0f13 52%, #080c10 100%)',
+            borderColor: 'rgba(122, 154, 172, 0.32)',
+            boxShadow: '0 28px 90px rgba(0, 0, 0, 0.45)',
+          }}
+        >
+          <div
+            className="flex flex-wrap items-center justify-between gap-4 px-5 py-4 border-b"
+            style={{
+              borderColor: 'rgba(255,255,255,0.09)',
+              background:
+                'linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%)',
+            }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg bg-muted/30 border border-border/40 focus:border-foreground/40 focus:outline-none transition-colors"
-                  placeholder="Your name"
-                />
-              </div>
+            <div className="flex items-center gap-2">
+              <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
+              <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
+              <span className="h-3 w-3 rounded-full bg-[#28c840]" />
+            </div>
+            <div
+              className="text-xs uppercase tracking-[0.35em] text-white/55"
+              style={{ fontFamily: '"IBM Plex Mono", "Fira Code", monospace' }}
+            >
+              portfolio-contact.sh
+            </div>
+            <div
+              className="rounded-full border px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-[#9ff6c2]"
+              style={{
+                borderColor: 'rgba(159,246,194,0.26)',
+                backgroundColor: 'rgba(159,246,194,0.08)',
+                fontFamily: '"IBM Plex Mono", "Fira Code", monospace',
+              }}
+            >
+              session live
+            </div>
+          </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg bg-muted/30 border border-border/40 focus:border-foreground/40 focus:outline-none transition-colors"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 rounded-lg bg-muted/30 border border-border/40 focus:border-foreground/40 focus:outline-none transition-colors resize-none"
-                  placeholder="Tell me about your project..."
-                />
-              </div>
-
-              <motion.button
-                type="submit"
-                className="w-full px-8 py-3 bg-foreground text-background rounded-full hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr]">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="border-b px-5 py-6 lg:border-b-0 lg:border-r md:px-8 md:py-8"
+              style={{ borderColor: 'rgba(255,255,255,0.09)' }}
+            >
+              <div
+                className="mb-6 space-y-2 text-sm text-white/68"
+                style={{ fontFamily: '"IBM Plex Mono", "Fira Code", monospace' }}
               >
-                Send Message <Send className="w-4 h-4" />
-              </motion.button>
-            </form>
-          </motion.div>
+                <p>$ initialize contact session</p>
+                <p className="text-[#9ff6c2]">status: accepting freelance + full-time opportunities</p>
+                <p className="text-white/45">hint: fill the fields below to queue a message.</p>
+              </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-8"
-          >
-            <div>
-              <h3 className="text-2xl mb-6">Contact Information</h3>
-              <div className="space-y-6">
-                {contactInfo.map((info) => (
-                  <div key={info.label} className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-muted/30 flex items-center justify-center flex-shrink-0">
-                      <info.icon className="w-5 h-5" />
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {promptRows.map((field) => (
+                  <label key={field.label} className="block">
+                    <div
+                      className="mb-2 flex items-center gap-3 text-sm text-[#9ff6c2]"
+                      style={{ fontFamily: '"IBM Plex Mono", "Fira Code", monospace' }}
+                    >
+                      <span className="text-white/45">$</span>
+                      <span>set {field.label}</span>
                     </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
-                      {info.href ? (
-                        <a
-                          href={info.href}
-                          className="text-foreground hover:text-muted-foreground transition-colors"
-                        >
-                          {info.value}
-                        </a>
-                      ) : (
-                        <p className="text-foreground">{info.value}</p>
-                      )}
-                    </div>
-                  </div>
+                    <input
+                      type={field.label === 'email' ? 'email' : 'text'}
+                      id={field.label}
+                      name={field.label}
+                      value={formData[field.label]}
+                      onChange={handleChange}
+                      required
+                      placeholder={field.placeholder}
+                      className="w-full rounded-2xl border px-4 py-3 text-base text-white placeholder:text-white/28 transition-colors focus:outline-none"
+                      style={{
+                        backgroundColor: 'rgba(255,255,255,0.04)',
+                        borderColor: 'rgba(255,255,255,0.12)',
+                        fontFamily: '"IBM Plex Mono", "Fira Code", monospace',
+                      }}
+                    />
+                  </label>
                 ))}
-              </div>
-            </div>
 
-            <div className="p-8 rounded-2xl border border-border/40" style={{ backgroundColor: 'var(--neutral-terracotta-light)' }}>
-              <h4 className="text-lg mb-3">Availability</h4>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                I'm currently available for freelance projects and full-time opportunities.
-                Response time is typically within 24 hours.
-              </p>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: 'var(--neutral-sage)' }} />
-                <span className="text-sm text-muted-foreground">Available for work</span>
+                <label className="block">
+                  <div
+                    className="mb-2 flex items-center gap-3 text-sm text-[#9ff6c2]"
+                    style={{ fontFamily: '"IBM Plex Mono", "Fira Code", monospace' }}
+                  >
+                    <span className="text-white/45">$</span>
+                    <span>cat project-brief.txt</span>
+                  </div>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={7}
+                    placeholder="Tell me what you're building, the timeline, and what kind of help you need."
+                    className="w-full rounded-2xl border px-4 py-3 text-base text-white placeholder:text-white/28 transition-colors focus:outline-none resize-none"
+                    style={{
+                      backgroundColor: 'rgba(255,255,255,0.04)',
+                      borderColor: 'rgba(255,255,255,0.12)',
+                      fontFamily: '"IBM Plex Mono", "Fira Code", monospace',
+                    }}
+                  />
+                </label>
+
+                <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between">
+                  <p
+                    className="text-xs uppercase tracking-[0.25em] text-white/42"
+                    style={{ fontFamily: '"IBM Plex Mono", "Fira Code", monospace' }}
+                  >
+                    expected response time: &lt; 24 hours
+                  </p>
+                  <motion.button
+                    type="submit"
+                    className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm uppercase tracking-[0.25em] text-[#08110b]"
+                    style={{
+                      background:
+                        'linear-gradient(135deg, #9ff6c2 0%, color-mix(in srgb, #9ff6c2 55%, var(--neutral-blue) 45%) 100%)',
+                      fontFamily: '"IBM Plex Mono", "Fira Code", monospace',
+                    }}
+                    whileHover={{ scale: 1.02, y: -1 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Send packet <Send className="h-4 w-4" />
+                  </motion.button>
+                </div>
+              </form>
+            </motion.div>
+
+            <motion.aside
+              initial={{ opacity: 0, x: 20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="px-5 py-6 md:px-8 md:py-8"
+            >
+              <div className="space-y-6">
+                <div
+                  className="rounded-[1.5rem] border p-5"
+                  style={{
+                    backgroundColor: 'rgba(255,255,255,0.04)',
+                    borderColor: 'rgba(255,255,255,0.08)',
+                  }}
+                >
+                  <div
+                    className="mb-4 text-xs uppercase tracking-[0.3em] text-white/45"
+                    style={{ fontFamily: '"IBM Plex Mono", "Fira Code", monospace' }}
+                  >
+                    network routes
+                  </div>
+                  <div className="space-y-4">
+                    {contactInfo.map((info) => (
+                      <div
+                        key={info.label}
+                        className="flex items-start gap-4 rounded-2xl border p-4"
+                        style={{
+                          backgroundColor: 'rgba(255,255,255,0.03)',
+                          borderColor: 'rgba(255,255,255,0.06)',
+                        }}
+                      >
+                        <div
+                          className="flex h-11 w-11 items-center justify-center rounded-2xl"
+                          style={{ backgroundColor: 'rgba(159,246,194,0.1)' }}
+                        >
+                          <info.icon className="h-5 w-5 text-[#9ff6c2]" />
+                        </div>
+                        <div className="min-w-0">
+                          <p
+                            className="mb-1 text-[11px] uppercase tracking-[0.25em] text-white/42"
+                            style={{ fontFamily: '"IBM Plex Mono", "Fira Code", monospace' }}
+                          >
+                            {info.label}
+                          </p>
+                          {info.href ? (
+                            <a href={info.href} className="break-all text-sm text-white transition-opacity hover:opacity-75">
+                              {info.value}
+                            </a>
+                          ) : (
+                            <p className="text-sm text-white">{info.value}</p>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div
+                  className="rounded-[1.5rem] border p-5"
+                  style={{
+                    background:
+                      'linear-gradient(180deg, rgba(159,246,194,0.1) 0%, rgba(157,180,192,0.08) 100%)',
+                    borderColor: 'rgba(159,246,194,0.12)',
+                  }}
+                >
+                  <div
+                    className="mb-3 text-xs uppercase tracking-[0.3em] text-white/45"
+                    style={{ fontFamily: '"IBM Plex Mono", "Fira Code", monospace' }}
+                  >
+                    session status
+                  </div>
+                  <p className="text-2xl text-white">Available for work</p>
+                  <p className="mt-3 text-sm leading-7 text-white/70">
+                    Best fit for portfolio sites, product frontends, landing pages, and polished UI refreshes that need both design taste and clean implementation.
+                  </p>
+                  <div className="mt-5 flex items-center gap-3">
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#9ff6c2] shadow-[0_0_14px_rgba(159,246,194,0.85)]" />
+                    <span
+                      className="text-xs uppercase tracking-[0.25em] text-white/55"
+                      style={{ fontFamily: '"IBM Plex Mono", "Fira Code", monospace' }}
+                    >
+                      listening on port 443
+                    </span>
+                  </div>
+                </div>
+
+                <div
+                  className="rounded-[1.5rem] border p-5 text-sm text-white/62"
+                  style={{
+                    backgroundColor: 'rgba(255,255,255,0.03)',
+                    borderColor: 'rgba(255,255,255,0.06)',
+                    fontFamily: '"IBM Plex Mono", "Fira Code", monospace',
+                  }}
+                >
+                  <p className="text-white/45">recent command</p>
+                  <p className="mt-2 text-[#9ff6c2]">$ ship thoughtful interfaces</p>
+                  <p className="mt-1">result: fast, polished, and human-centered experiences.</p>
+                </div>
               </div>
-            </div>
-          </motion.div>
-        </div>
+            </motion.aside>
+          </div>
+        </motion.div>
 
         <motion.footer
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-20 pt-8 border-t border-border/40 text-center text-sm text-muted-foreground"
+          className="mt-20 pt-8 border-t border-white/10 text-center text-sm text-white/55"
         >
-          <p>© 2026 Portfolio. All rights reserved.</p>
+          <p>&copy; 2026 Portfolio. All rights reserved.</p>
         </motion.footer>
       </div>
     </section>
