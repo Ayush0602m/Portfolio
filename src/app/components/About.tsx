@@ -83,7 +83,7 @@ export function About() {
             About me
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed ">
-              scoobdy 2 
+            Specializes in full-stack development with a focus on modern web technologies like React, Node.js.
             </p>
           </motion.div>
 
