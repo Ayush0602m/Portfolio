@@ -1,10 +1,7 @@
-import { Moon, Sun } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
 import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
 
 export function Navigation() {
-  const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
@@ -96,19 +93,6 @@ export function Navigation() {
             ))}
           </div>
 
-          <motion.button
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-muted/50 hover:bg-muted transition-colors"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            aria-label="Toggle theme"
-          >
-            {theme === 'light' ? (
-              <Moon className="w-5 h-5" />
-            ) : (
-              <Sun className="w-5 h-5" />
-            )}
-          </motion.button>
         </div>
       </div>
     </motion.nav>

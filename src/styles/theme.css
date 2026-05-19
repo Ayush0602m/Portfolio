@@ -1,6 +1,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  color-scheme: light;
   --font-size: 16px;
   --background: #fdfcfb;
   --foreground: #090602;
@@ -56,6 +57,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --background: #000000;
   --foreground: #f5f3f0;
   --card: #0b0a09;
@@ -74,6 +76,8 @@
   --destructive-foreground: #f5f3f0;
   --border: rgba(245, 243, 240, 0.08);
   --input: #2d2a27;
+  --input-background: #1a1816;
+  --switch-background: #4a453f;
   --ring: #4a453f;
   --font-weight-medium: 500;
   --font-weight-normal: 400;

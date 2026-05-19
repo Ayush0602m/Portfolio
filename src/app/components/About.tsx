@@ -73,7 +73,7 @@ export function About() {
           
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 mb-16  border-white">
+        <div className="grid grid-cols-1 gap-12 mb-16 border-white">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}

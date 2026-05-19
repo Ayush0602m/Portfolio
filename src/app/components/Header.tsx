@@ -1,72 +1,17 @@
 import { motion } from 'motion/react';
-import { Github, Moon, Sun } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
+import { Github } from 'lucide-react';
 
 export function Header() {
-  const { theme, toggleTheme } = useTheme();
-
   return (
-    <header className="relative w-full h-[150px] overflow-visible mt-0 mb-1">
-      {/* Map Background */}
-      <div
-        className="absolute top-0 bottom-0 -left-6 -right-6 overflow-hidden"
-        style={{
-          background: 'linear-gradient(135deg, rgba(255, 0, 100, 0.05) 25%, transparent 25%), linear-gradient(225deg, rgba(255, 0, 100, 0.05) 25%, transparent 25%)',
-        }}
-      >
-        {/* Grid lines - horizontal */}
-        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="mapGrid" width="60" height="60" patternUnits="userSpaceOnUse">
-              {/* Main grid lines */}
-              <path
-                d="M 60 0 L 0 0 0 60"
-                fill="none"
-                stroke="rgba(255, 0, 100, 0.15)"
-                strokeWidth="2"
-              />
-            </pattern>
-            <pattern id="mapGridLarge" width="180" height="180" patternUnits="userSpaceOnUse">
-              {/* Larger grid lines */}
-              <path
-                d="M 180 0 L 0 0 0 180"
-                fill="none"
-                stroke="rgba(255, 0, 100, 0.25)"
-                strokeWidth="1.5"
-              />
-            </pattern>
-            {/* Radial gradient for orb glow */}
-            <radialGradient id="orbGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="rgba(255, 20, 80, 0.4)" />
-              <stop offset="50%" stopColor="rgba(255, 20, 80, 0.1)" />
-              <stop offset="100%" stopColor="rgba(255, 20, 80, 0)" />
-            </radialGradient>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#mapGrid)" />
-          <rect width="100%" height="100%" fill="url(#mapGridLarge)" />
-
-          {/* Diagonal street lines */}
-          <line x1="0" y1="100" x2="200" y2="300" stroke="rgba(255, 0, 100, 0.2)" strokeWidth="1" />
-          <line x1="50" y1="0" x2="250" y2="200" stroke="rgba(255, 0, 100, 0.15)" strokeWidth="1" />
-          <line x1="100" y1="150" x2="300" y2="350" stroke="rgba(255, 0, 100, 0.18)" strokeWidth="1" />
-          <line x1="150" y1="50" x2="350" y2="250" stroke="rgba(255, 0, 100, 0.12)" strokeWidth="1" />
-          <line x1="200" y1="0" x2="400" y2="200" stroke="rgba(255, 0, 100, 0.2)" strokeWidth="1" />
-
-          {/* Curved street lines */}
-          <path d="M 0 200 Q 100 150 200 200 T 400 200" fill="none" stroke="rgba(255, 0, 100, 0.2)" strokeWidth="1" />
-          <path d="M 0 300 Q 150 250 300 300 T 600 300" fill="none" stroke="rgba(255, 0, 100, 0.15)" strokeWidth="1" />
-          <path d="M 100 0 Q 150 100 100 200 T 100 400" fill="none" stroke="rgba(255, 0, 100, 0.18)" strokeWidth="1" />
-
-          {/* Additional random street segments */}
-          <line x1="20" y1="80" x2="120" y2="80" stroke="rgba(255, 0, 100, 0.25)" strokeWidth="1" />
-          <line x1="30" y1="160" x2="180" y2="160" stroke="rgba(255, 0, 100, 0.2)" strokeWidth="1" />
-          <line x1="80" y1="240" x2="220" y2="240" stroke="rgba(255, 0, 100, 0.22)" strokeWidth="1" />
-          <line x1="60" y1="320" x2="200" y2="320" stroke="rgba(255, 0, 100, 0.18)" strokeWidth="1" />
-
-          {/* Vertical segments */}
-          <line x1="140" y1="40" x2="140" y2="180" stroke="rgba(255, 0, 100, 0.2)" strokeWidth="1" />
-          <line x1="220" y1="100" x2="220" y2="280" stroke="rgba(255, 0, 100, 0.15)" strokeWidth="1" />
-        </svg>
+    <header className="relative w-full h-[180px] overflow-visible mt-0 mb-1">
+      {/* Banner Background */}
+      <div className="absolute top-0 bottom-0 -left-6 -right-6 overflow-hidden">
+        <img
+          src="/banner.png"
+          alt="Portfolio banner"
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/35" />
       </div>
 
       {/* Floating Orb - overlaps below header */}
@@ -116,20 +61,6 @@ export function Header() {
          
         </motion.a>
 
-        {/* Theme Toggle */}
-        <motion.button
-          onClick={toggleTheme}
-          className="p-2 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          aria-label="Toggle theme"
-        >
-          {theme === 'light' ? (
-            <Moon className="w-5 h-5 text-white" />
-          ) : (
-            <Sun className="w-5 h-5 text-yellow" />
-          )}
-        </motion.button>
       </div>
     </header>
   );
