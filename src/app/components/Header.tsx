@@ -38,11 +38,11 @@ export function Header() {
           
         >
           <img
-    src="/profile.jpg"
-    alt="Ayush Mangla profile"
-    className="w-full h-full rounded-full object-cover border border-black/20"
-    style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.15)' }}
-  />
+            src="/profile.png"
+            alt="Ayush Mangla profile"
+            className="w-full h-full rounded-full object-cover object-center border border-black/20"
+            style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.15)' }}
+          />
         </motion.div>
       </motion.div>
 

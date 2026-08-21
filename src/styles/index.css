@@ -5,3 +5,15 @@
 body {
   font-family: "Roboto Slab", serif;
 }
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+main {
+  min-width: 0;
+}

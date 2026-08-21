@@ -10,31 +10,31 @@ export function Projects() {
 
   const projects = [
     {
-      title: 'Modern Architecture Platform',
-      category: 'Web Design & Development',
-      description: 'A comprehensive platform showcasing contemporary architectural projects with immersive 3D visualizations and interactive galleries.',
+      title: 'SafeSpace',
+      category: 'Real-Time Communication Platform',
+      description: 'An anonymous real-time communication platform that helps users connect and discuss topics through low-latency WebSocket messaging, topic-based room matching, and session management while preserving privacy.',
       image: 'https://images.unsplash.com/photo-1665043547526-a2b0c800d130?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwbW9kZXJuJTIwYXJjaGl0ZWN0dXJlfGVufDF8fHx8MTc3MzExMTk0NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      tags: ['React', 'Three.js', 'TypeScript'],
+      tags: ['React', 'TypeScript', 'Node.js', 'WebSockets'],
       link: 'https://example.com',
       github: 'https://github.com',
       accent: 'var(--neutral-terracotta)'
     },
     {
-      title: 'Workspace Management System',
-      category: 'SaaS Product',
-      description: 'An intuitive workspace management tool designed for remote teams, featuring real-time collaboration and smart scheduling.',
+      title: 'PocketPall',
+      category: 'Personal Finance Management',
+      description: 'A full-stack finance management app for students to track income, expenses, budgets, and savings in one dashboard, with group expense splitting, balance settlement, and real-time financial insights.',
       image: 'https://images.unsplash.com/photo-1622814859704-c6cd5ae75dd0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMHdvcmtzcGFjZSUyMGRlc2lnbnxlbnwxfHx8fDE3NzMxMjI5NjJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      tags: ['Next.js', 'PostgreSQL', 'Tailwind'],
+      tags: ['React', 'TypeScript', 'Node.js'],
       link: 'https://example.com',
       github: 'https://github.com',
       accent: 'var(--neutral-blue)'
     },
     {
-      title: 'Design System & Components',
-      category: 'UI/UX Framework',
-      description: 'A comprehensive design system with reusable components, focusing on accessibility and developer experience.',
+      title: 'CampusIQ',
+      category: 'AI-Powered College Assistant',
+      description: 'A full-stack college assistant that gives students natural-language access to institution-specific information using PDF-based RAG retrieval, source citations, and secure role-based student and administrator access.',
       image: 'https://images.unsplash.com/photo-1595411425732-e69c1abe2763?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdlb21ldHJpYyUyMHBhdHRlcm58ZW58MXx8fHwxNzczMDk2NTc2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      tags: ['Figma', 'React', 'Storybook'],
+      tags: ['React', 'Express', 'RAG', 'JWT'],
       link: 'https://example.com',
       github: 'https://github.com',
       accent: 'var(--neutral-sage)'
@@ -50,11 +50,7 @@ export function Projects() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          
-          <h2 className="text-4xl md:text-5xl tracking-tight">
-             Projects 
-           
-          </h2>
+          <h2 className="text-4xl md:text-5xl tracking-tight">Projects</h2>
         </motion.div>
 
         <div className="grid gap-12">
@@ -66,8 +62,8 @@ export function Projects() {
               transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
               className="group"
             >
-              <div className="grid md:grid-cols-5 gap-8 items-center">
-                <div className={`md:col-span-3 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
+              <div className="grid min-w-0 md:grid-cols-5 gap-8 items-center">
+                <div className={`min-w-0 md:col-span-3 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
                   <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-muted/30">
                     <ImageWithFallback
                       src={project.image}
@@ -78,7 +74,7 @@ export function Projects() {
                   </div>
                 </div>
 
-                <div className={`md:col-span-2 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
+                <div className={`min-w-0 md:col-span-2 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
                   <span className="text-sm mb-2 block" style={{ color: project.accent }}>
                     {project.category}
                   </span>
@@ -86,13 +82,13 @@ export function Projects() {
                   <p className="text-muted-foreground mb-6 leading-relaxed">
                     {project.description}
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tag}
                         className="px-3 py-1 rounded-full text-xs"
-                        style={{ 
+                        style={{
                           backgroundColor: tagIndex === 0 ? project.accent + '15' : 'var(--muted)',
                           color: tagIndex === 0 ? project.accent : 'var(--foreground)'
                         }}
