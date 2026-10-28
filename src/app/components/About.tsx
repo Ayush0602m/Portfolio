@@ -52,9 +52,6 @@ export function About() {
     <span className="block font-extralight text-[20px]/7 mt-5 ">
     Software Engineer, building stuff that matters. Passionate about creating innovative web solutions and enhancing user experiences.
   </span>
-    <span className="block font-extralight text-[20px]/7 mt-3 ">
-    I'm also exploring Wireless Sensor Networks, with a focus on energy-efficient routing and network security.
-  </span>
   </h2>
 
 
@@ -79,7 +76,7 @@ export function About() {
             About me
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed ">
-            Specializes in full-stack development with a focus on modern web technologies like React, Node.js.
+            Specializes in full-stack development with a focus on modern web technologies like React, Node.js. I'm also exploring Wireless Sensor Networks, with a focus on energy-efficient routing and network security.
             </p>
           </motion.div>
 
