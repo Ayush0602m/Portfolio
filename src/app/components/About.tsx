@@ -52,19 +52,15 @@ export function About() {
     <span className="block font-extralight text-[20px]/7 mt-5 ">
     Software Engineer, building stuff that matters. Passionate about creating innovative web solutions and enhancing user experiences.
   </span>
+    <span className="block font-extralight text-[20px]/7 mt-3 ">
+    I'm also exploring Wireless Sensor Networks, with a focus on energy-efficient routing and network security.
+  </span>
   </h2>
 
 
  
 
   <div className="flex items-center mt-0">
-    {/* <img 
-      src="/profile.jpg" 
-      alt="Ayush Mangla profile"
-      className="w-16 h-16 md:w-30 md:h-30 rounded-full object-cover border-2 border-muted-foreground"
-      style={{ boxShadow: '0 4px 16px 0 rgba(0,0,0,0.07)' }}
-    /> */}
-
    
   </div>
 

@@ -10,6 +10,16 @@ export function Projects() {
 
   const projects = [
     {
+      title: 'WSN Routing Simulator',
+      category: 'Wireless Sensor Network Simulation',
+      description: 'A simulation study of energy-efficient routing in wireless sensor networks, comparing cluster-based LEACH with on-demand AODV on metrics like network lifetime, energy consumption, and packet delivery ratio.',
+      image: 'https://images.unsplash.com/photo-1665043547526-a2b0c800d130?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwbW9kZXJuJTIwYXJjaGl0ZWN0dXJlfGVufDF8fHx8MTc3MzExMTk0NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+      tags: ['NS2', 'LEACH', 'AODV', 'WSN'],
+      link: 'https://example.com',
+      github: 'https://github.com',
+      accent: 'var(--neutral-blue)'
+    },
+    {
       title: 'SafeSpace',
       category: 'Real-Time Communication Platform',
       description: 'An anonymous real-time communication platform that helps users connect and discuss topics through low-latency WebSocket messaging, topic-based room matching, and session management while preserving privacy.',

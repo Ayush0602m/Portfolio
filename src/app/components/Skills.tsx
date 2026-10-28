@@ -1,5 +1,5 @@
 import { motion, useInView } from 'motion/react';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import {
   Atom,
   Braces,
@@ -43,42 +43,64 @@ export function Skills() {
     // { name: 'Cursor', icon: MousePointer2 }
   ];
 
+  const coursework = [
+    'WSN Architecture',
+    'Ad hoc Routing',
+    'AODV',
+    'DSDV',
+    'S-MAC',
+    'LEACH',
+    'IEEE 802.15.4',
+    'SPINS (Secure Routing)',
+    'WSN Security',
+    '',
+  ].map((name) => ({ name, icon: Network }));
+
   return (
     <section id="skills" ref={ref} className="py-16 px-6 lg:px-8 bg-muted/20">
-      <div className="max-w-6xl mx-auto w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4 }}
-          className="overflow-hidden rounded-none border-2 border-zinc-700 bg-black"
-          style={{ borderStyle: 'dotted' }}
-        >
-          <div className="border-b-1 border-zinc-700 px-6 py-4" style={{ borderBottomStyle: 'dotted' }}>
-            <h3 className="text-xl font-semibold leading-none text-zinc-300">Tools I Use</h3>
-          </div>
-
-          <div className="px-6 py-4">
-            <div className="flex flex-wrap gap-2">
-              {stack.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.2, delay: 0.05 + index * 0.03 }}
-                    className="inline-flex items-center gap-2.5 rounded-xl border-2 border-zinc-700 bg-zinc-950 px-4 py-2 text-zinc-300"
-                    style={{ borderStyle: 'dotted' }}
-                  >
-                    <Icon className="h-4 w-4" />
-                    <span className="text-sm leading-none sm:text-base">{item.name}</span>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </motion.div>
+      <div className="max-w-6xl mx-auto w-full space-y-8">
+        <ChipCard title="Tools I Use" items={stack} isInView={isInView} />
+        <ChipCard title="Coursework: Wireless Sensor Networks" items={coursework} isInView={isInView} />
       </div>
     </section>
+  );
+}
+
+type ChipItem = { name: string; icon: React.ComponentType<{ className?: string }> };
+
+function ChipCard({ title, items, isInView }: { title: string; items: ChipItem[]; isInView: boolean }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.4 }}
+      className="overflow-hidden rounded-none border-2 border-zinc-700 bg-black"
+      style={{ borderStyle: 'dotted' }}
+    >
+      <div className="border-b-1 border-zinc-700 px-6 py-4" style={{ borderBottomStyle: 'dotted' }}>
+        <h3 className="text-xl font-semibold leading-none text-zinc-300">{title}</h3>
+      </div>
+
+      <div className="px-6 py-4">
+        <div className="flex flex-wrap gap-2">
+          {items.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: 8 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.2, delay: 0.05 + index * 0.03 }}
+                className="inline-flex items-center gap-2.5 rounded-xl border-2 border-zinc-700 bg-zinc-950 px-4 py-2 text-zinc-300"
+                style={{ borderStyle: 'dotted' }}
+              >
+                <Icon className="h-4 w-4" />
+                <span className="text-sm leading-none sm:text-base">{item.name}</span>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </motion.div>
   );
 }

@@ -6,7 +6,6 @@ import { Education } from './components/Education';
 import { Projects } from './components/Projects';
 import { Skills } from './components/Skills';
 import { Contact } from './components/Contact';
-import { DockNav } from './components/DockNav';
 import { Header } from './components/Header';
 import React from 'react';
 
@@ -15,9 +14,6 @@ export default function App() {
     <ThemeProvider>
       <div className="min-h-screen">
 
-        <DockNav />
-
-   
         <main className="max-w-3xl mx-auto px-6 border-1 border-grey relative align-middle">
               <Header />
           <About/>
